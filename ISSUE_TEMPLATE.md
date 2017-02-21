@@ -1,21 +1,20 @@
 ## Story
 
-**As a** command line client
+**As a** customer
 
-**In order to** interact with the Bangazon database
+**In order to** 
 
-**I want to** use a RESTful API
+**I want to** 
 
 ## Scenarios
 
-**Given** a customer performs an action
+**Given** 
 
-**When** that action requires the querying of data
+**When** 
 
-**Or** that action requires creating new data
+**Or** 
 
-**Then** the Bangazon RESTful API should be used to complete the action
-
+**Then** 
 
 ### Context
 1. What should the feature do?

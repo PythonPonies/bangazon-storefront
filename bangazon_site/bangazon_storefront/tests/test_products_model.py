@@ -20,7 +20,7 @@ class ProductsModelTestCase(TestCase):
         test_products_can_be_added_to_database is a method to test if products can be added to the database.
         """
 
-        # create customer and add them to database
+        # create customer
         Bill = Customer.objects.create(
             email="bill@bill.com",
             first_name="Bill",
@@ -28,14 +28,17 @@ class ProductsModelTestCase(TestCase):
             shipping_address="123 Test Way",
             phone="333-333-3333"
         )
-
+        # pull instance of customer from databse
+        bill_in_datebase = Customer.objects.get(email="bill@bill.com")
         # check that what is pushed up is what is in the database
-        assertContains(Customer.objects.all(), Bill)
+        assertEqual(bill_in_datebase.pk, Bill.pk)
 
         # create new product type
         Food = ProductTypes.objects.create(label="food")
+        # pull instance of product type from databse
+        food_in_datebase = ProductTypes.objects.get(label="food")
         # check that what is pushed up is what is in the database
-        assertContains(ProductTypes.objects.all(), Food)
+        assertEqual(food_in_datebase.pk, Food.pk)
 
         # create new product
         Pizza = Products.objects.create(
@@ -46,6 +49,7 @@ class ProductsModelTestCase(TestCase):
             price=9.85,
             quantity=9
         )
-
+        # pull instance of product from databse
+        pizza_in_datebase = Products.objects.get(title="Cheese Pizza")
         # check that what is pushed up is what is in the database
-        assertContains(Products.objects.all(), Pizza)
+        assertEqual(pizza_in_datebase.pk, Pizza.pk)

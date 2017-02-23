@@ -1,1 +1,2 @@
-__all__ = ['createorder_view']
+__all__ = ["customer_view",'createorder_view']
+

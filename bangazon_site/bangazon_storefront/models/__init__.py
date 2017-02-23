@@ -1,1 +1,1 @@
-__all__ = ['order_model', 'productonorder_model']
+__all__ = ["customer_model", 'order_model', 'productonorder_model']

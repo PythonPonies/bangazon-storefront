@@ -15,11 +15,13 @@ class TestProductTypesModel(TestCase):
         and retrieved from the database
         Author: Ike, Main Bananas
         """
-        shoes = ProductTypes.objects.get_or_create(category_name="Shoes")
-        what_is_zees = ProductTypes.objects.all()
-        self.assertEqual( len(ProductTypes.objects.all()), 1 )
 
-        # self.assertEqual(ProductTypes.objects.get(pk=1), shoes.pk)
+        #create an instance of a product type ("Shoes")
+        shoes = ProductTypes.objects.get_or_create(category_name="Shoes")
+
+        # Test to determine:
+        # Does the list of product types equal the 1 product type created
+        self.assertEqual( len(ProductTypes.objects.all()), 1 )
 
     
 

@@ -4,7 +4,7 @@ class ProductTypes(models.Model):
     """ 
     ProductTypes model class
     The purpose of this class is to define categories of products or product types
-    author: Ike
+    author(s): Ike
     subclasses: Meta (allows forordering by name)
     methods: __str__ : Allows for printing of object in string format
     """

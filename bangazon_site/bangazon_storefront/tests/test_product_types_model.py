@@ -6,7 +6,7 @@ class TestProductTypesModel(TestCase):
     """
     The purpose of this class is to test the model for categories of products on the
     bangazon site.
-    Author: Ike, Main Bananas
+    Author(s): Ike, Main Bananas
     """
 
     def test_ProductTypes_model(self):

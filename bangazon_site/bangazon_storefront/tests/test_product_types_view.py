@@ -1,6 +1,8 @@
 from django.test import TestCase
-from bangazon_storefront.models import * 
-from bangazon_storefront.views import * 
+from bangazon_storefront.models.customer_model import * 
+# from bangazon_storefront.models.products_model import * 
+from bangazon_storefront.models.product_types_model import * 
+from bangazon_storefront.views.product_types_view import * 
 
 # Create your tests here.
 
@@ -29,19 +31,19 @@ class TestProductTypes(TestCase):
         necessary for my tests to be measured
         Author: Ike, Main Bananas
         """
-        pass
-        # Kyrie = Customer.objects.get_or_create(User=, shipping_address="", phone=4257896453)
-        # Shoes = ProductTypes.objects.get_or_create(category_name="Shoes")
-        # Books = ProductTypes.objects.get_or_create(category_name="Books")
-        # Products.objects.get_or_create("Man's Search for Meaning", "Book by Frankl",
-        # Kyrie.pk, Books.pk, 15.00, 3)
-        # Products.objects.get_or_create("The Four Agreements", "Book by Ruiz",
-        # Kyrie.pk, Books.pk, 16.00, 4)
+        
+        Kyrie = Customer.objects.get_or_create(User=Kyrie, phone='4257896453', shipping_address="The Flat Earth", )
+        Shoes = ProductTypes.objects.get_or_create(category_name="Shoes")
+        Books = ProductTypes.objects.get_or_create(category_name="Books")
+        Products.objects.get_or_create("Man's Search for Meaning", "Book by Frankl",
+        Kyrie.pk, Books.pk, 15.00, 3)
+        Products.objects.get_or_create("The Four Agreements", "Book by Ruiz",
+        Kyrie.pk, Books.pk, 16.00, 4)
 
-        # )
 
     def test_get_all_product_types(self):
         response = ProductTypes.objects.filter()
+        print(response, "this is the response for all product types hopefully")
         self.assertContains(response, "Shoes")
         self.assertContains(response, "Books")
 
@@ -51,6 +53,7 @@ class TestProductTypes(TestCase):
         #add at least two product in a particular product type category
         # a manner in which to select a specific product type category
         #a getter function for all the products in a category
+
         all_products = Products.objects.filter(category_name__exact="Books")
         # an assertion that the product type category contains our listed products
         self.assertContains(all_products, "Man's Search for Meaning")

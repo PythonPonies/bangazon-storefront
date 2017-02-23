@@ -32,8 +32,7 @@ class PaymentTypeView(TemplateView):
 #         first_name = data['first_name'],
 #         last_name = data['last_name']
 #     )
-    
-#     return login_user(request)
+
 
 
 

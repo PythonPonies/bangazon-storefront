@@ -35,9 +35,8 @@ class TestOrder(TestCase):
         """
         Test that a customer can create an order on order view
         """
-        # response = self.client.post('order', kwargs={'order_id': self.customer_order.pk})
-        response = self.client.get('index')
-        self.assertEqual(response.status_code, 200)
+        response = self.client.post('order', kwargs={'order_id': self.customer_order.pk})
+        print(response)
         # self.assertTemplateUsed(response, 'order.html'
          # self.assertTrue('latest_poll_list' in resp.context)
         # self.assertEqual([poll.pk for poll in resp.context['latest_poll_list']], [1])

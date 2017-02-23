@@ -7,5 +7,5 @@ class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone = models.CharField(max_length=12, blank=True)
     shipping_address = models.CharField(max_length=100, blank=True)
-    date_account_created = models.DateField(null=True, blank=True)
+    date_account_created = models.DateField(auto_now_add=True)
 

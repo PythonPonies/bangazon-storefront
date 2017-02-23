@@ -15,10 +15,9 @@ class TestOrder(TestCase):
 
     def test_index_view(self):
         """
-        Test that a customer can create an order on order view
+        Test that an index view works
         """
         response = self.client.get('/')
-
         self.assertEqual(response.status_code, 200)
 
 

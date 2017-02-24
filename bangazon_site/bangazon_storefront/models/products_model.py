@@ -1,4 +1,6 @@
 from django.db import models
+from bangazon_storefront.models.product_types_model import *
+from bangazon_storefront.models.customer_model import *
 
 class ProductsModel(models.Model):
     """

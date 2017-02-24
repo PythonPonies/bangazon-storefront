@@ -13,5 +13,5 @@ class PaymentTypeModelTests(TestCase):
 
     def test_paymenttype_model(self):
         self.payment = PaymentType.objects.create(payment_name='Visa', account_number=1234567890, expiration_date='12-12-01', billing_address='123 Test Way')
-        db_acct = PaymentType.objects.get(pk=1)
-        self.assertEqual(self.payment, db_acct)
+        self.db_acct = PaymentType.objects.get(pk=1)
+        self.assertEqual(self.payment.id, self.db_acct.id)

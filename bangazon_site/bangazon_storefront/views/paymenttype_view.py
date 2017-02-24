@@ -1,8 +1,6 @@
 from django.views.generic.base import TemplateView
 from bangazon_storefront.models.paymenttype_model import PaymentType
 
-
-
 class PaymentTypeView(TemplateView):
 
     template_name = 'bangazon_storefront/payment.html'
@@ -22,21 +20,3 @@ class PaymentTypeView(TemplateView):
         )
 
         return HttpResponseRedirect('/')
-
-# def add_new_payment(request):
-#     data = request.POST
-#     Payment.objects.create_user(
-#         username = data['username'],
-#         email = data['email'],
-#         password = data['password'],
-#         first_name = data['first_name'],
-#         last_name = data['last_name']
-#     )
-
-
-
-
-
-
-
-

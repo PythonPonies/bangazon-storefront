@@ -9,5 +9,5 @@ from bangazon_storefront.models.customer_model import *
 # Work in Progress--will include login/register views
 # Author PS
 
-class CustomerView(TemplateView): 
+class CustomerView(TemplateView):
 	template = "templates/customer_view"

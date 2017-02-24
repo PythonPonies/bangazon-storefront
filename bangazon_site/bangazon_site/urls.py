@@ -18,7 +18,6 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^', include('bangazon_storefront.urls'), name='bangazon_site'),
     url(r'^admin/', admin.site.urls),
     url(r'^', include('bangazon_storefront.urls'), name='bangazon_store')
 ]

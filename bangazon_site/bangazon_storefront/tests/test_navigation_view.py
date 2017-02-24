@@ -20,4 +20,4 @@ class NavigationViewTestCase(TestCase):
 
         number_of_products = Navigation.get_products_for_active_customer()
         it_is_a_number = isinstance(number_of_products, int)
-        assertTrue(it_is_a_number)
+        self.assertTrue(it_is_a_number)

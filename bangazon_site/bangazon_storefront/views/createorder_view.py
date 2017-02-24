@@ -12,11 +12,8 @@ def display_order_and_products(request):
     Method to create and display and order and all its products on the order template
     """
     customer = customer_model.Customer.objects.get(user=request.user)
-    order = order_model.Order.objects.get(buyer = customer, payment_complete=0)
-    if order == None:
-        order = order_model.Order.objects.create(
-        buyer = customer
-        )
+    order = order_model.Order.objects.get_or_create(buyer = customer, payment_complete=0)
+    order = order[0]
     products = productonorder_model.Product_On_Order.objects.filter(order_id=order.pk)
     order.products = []
     for product in products:

@@ -5,8 +5,6 @@ from django.contrib.auth.models import User
 from bangazon_storefront.models import *
 
 
-
-
 def display_order_and_products(request):
     """
     Method to create and display and order and all its products on the order template

@@ -1,5 +1,5 @@
 from django.db import models
-from . import customer_model
+from . import customer_model, products_model, paymenttype_model
 
 
 class Order(models.Model):
@@ -13,8 +13,8 @@ class Order(models.Model):
 
     Author: Zoe LeBlanc, Main Bananas
     '''
-    # products = models.ManyToManyField('Product', through='Product_On_Order')
+    # products = models.ManyToManyField(products_model.ProductsModel, through='productonorder_model.Product_On_Order')
     date_created = models.DateTimeField(auto_now_add=True)
     buyer = models.ForeignKey(customer_model.Customer, null=True, on_delete=models.CASCADE, related_name='orders')
-    # payment_type = models.ForeignKey(paymenttype_model.Payment_Type, blank=True, null=True, on_delete=models.CASCADE)
+    payment_type = models.ForeignKey(paymenttype_model.PaymentType, blank=True, null=True, on_delete=models.CASCADE)
     payment_complete = models.BooleanField(default=False)

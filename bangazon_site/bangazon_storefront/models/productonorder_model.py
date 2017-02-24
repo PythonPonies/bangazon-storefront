@@ -1,5 +1,5 @@
 from django.db import models
-from . import order_model
+from . import order_model, products_model
 
 
 class Product_On_Order(models.Model):
@@ -11,6 +11,6 @@ class Product_On_Order(models.Model):
 
     Author: Zoe LeBlanc, Main Bananas
     '''
-    # product = models.ForeignKey(product_model.Product, null=True, related_name='products_on_order')
+    product = models.ForeignKey(products_model.ProductsModel, null=True, related_name='products_on_order')
     order = models.ForeignKey(order_model.Order, null=True, related_name='products_on_order')
-
+    

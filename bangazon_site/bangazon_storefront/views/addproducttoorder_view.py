@@ -4,22 +4,17 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from bangazon_storefront.models import *
 
-
-
-
-def display_order_and_products(request):
-    """
-    Method to create and display and order and all its products on the order template
-    """
+def add_product_to_order(request):
+    data = request.POST
+    product = products_model.ProductsModel.objects.get(pk=data['product_id'])
     customer = customer_model.Customer.objects.get(user=request.user)
     order = order_model.Order.objects.get(buyer = customer, payment_complete=0)
     if order == None:
         order = order_model.Order.objects.create(
         buyer = customer
         )
-    products = productonorder_model.Product_On_Order.objects.filter(order_id=order.pk)
-    order.products = []
-    for product in products:
-        order.products.extend(products_model.ProductsModel.objects.filter(pk=product.pk))
-    context = {'order': order}
-    return render(request, 'bangazon_storefront/order.html', context)
+    productonorder_model.Product_On_Order.objects.create(
+        order=order,
+        product = product   
+    )
+    return HttpResponseRedirect(redirect_to='/productTypes')

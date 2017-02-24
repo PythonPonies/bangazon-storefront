@@ -31,7 +31,15 @@ class TestOrder(TestCase):
         self.customer_order = order_model.Order.objects.create(
             buyer=self.customer
         )
-        print(self.customer_order.pk)
+        product_type = product_types_model.ProductTypes.objects.create(category_name="Test")
+        self.product = products_model.ProductsModel.objects.create(
+            title="Cheese Pizza",
+            description="This is a super cheesy pizza.",
+            seller_id=self.customer,
+            categoryId=product_type,
+            price=9.85,
+            quantity=9
+        )
         self.client.login(
             username = "zoe",
             password = "1234asdf"
@@ -50,7 +58,9 @@ class TestOrder(TestCase):
         Test that a customer can create an order on order view
         """
         response = self.client.get(reverse('bangazon_storefront:order'))
+        print(response.content)
         self.assertEqual(response.context['order'].pk, self.customer_order.pk)
+
 
         
        

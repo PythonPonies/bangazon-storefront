@@ -1,3 +1,3 @@
-__all__ = ['customer_view', 'product_types_views']
+__all__ = ['customer_view', 'product_types_view', 'product_details_view']
 
 

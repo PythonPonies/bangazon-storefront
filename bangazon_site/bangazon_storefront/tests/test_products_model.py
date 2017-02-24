@@ -20,36 +20,41 @@ class ProductsModelTestCase(TestCase):
         test_products_can_be_added_to_database is a method to test if products can be added to the database.
         """
 
-        # create customer
-        Bill = Customer.objects.create(
-            email="bill@bill.com",
-            first_name="Bill",
-            last_name="Bill",
-            shipping_address="123 Test Way",
-            phone="333-333-3333"
-        )
+        # create user
+        Bill = User.objects.create_user(
+            username="billy23332",
+            last_name ="Billerton",
+            )
+        # inject user into customer
+        self.Bill = Customer.objects.create(
+            user=Bill,
+            phone = "333-333-4444",
+            shipping_address="123 Bill Way",
+            # date_account_created="2017-02-22",
+            )
+
         # pull instance of customer from databse
-        bill_in_datebase = Customer.objects.get(email="bill@bill.com")
+        bill_in_datebase = Customer.objects.get(user=Bill)
         # check that what is pushed up is what is in the database
-        assertEqual(bill_in_datebase.pk, Bill.pk)
+        self.assertEqual(bill_in_datebase.pk, Bill.pk)
 
         # create new product type
-        Food = ProductTypes.objects.create(label="food")
+        Food = ProductTypes.objects.create(category_name="food")
         # pull instance of product type from databse
-        food_in_datebase = ProductTypes.objects.get(label="food")
+        food_in_datebase = ProductTypes.objects.get(category_name="food")
         # check that what is pushed up is what is in the database
-        assertEqual(food_in_datebase.pk, Food.pk)
+        self.assertEqual(food_in_datebase.pk, Food.pk)
 
         # create new product
-        Pizza = Products.objects.create(
+        Pizza = ProductsModel.objects.create(
             title="Cheese Pizza",
             description="This is a super cheesy pizza.",
-            seller_id=Bill.Customer_id,
-            categoryId=Food.Food_id,
+            seller_id=self.Bill,
+            categoryId=Food,
             price=9.85,
             quantity=9
         )
         # pull instance of product from databse
-        pizza_in_datebase = Products.objects.get(title="Cheese Pizza")
+        pizza_in_datebase = ProductsModel.objects.get(title="Cheese Pizza")
         # check that what is pushed up is what is in the database
-        assertEqual(pizza_in_datebase.pk, Pizza.pk)
+        self.assertEqual(pizza_in_datebase.pk, Pizza.pk)

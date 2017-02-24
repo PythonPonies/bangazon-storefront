@@ -15,7 +15,7 @@ from bangazon_storefront.models import *
 
 def display_order_and_products(request):
     """
-    Method to create and display and order and all its products on the order html
+    Method to create and display and order and all its products on the order template
     """
     customer = customer_model.Customer.objects.get(user=request.user)
     order = order_model.Order.objects.get(buyer = customer)

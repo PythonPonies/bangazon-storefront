@@ -15,7 +15,7 @@ class ProductDetailsTestCase(TestCase):
     Methods:   test_product_detail_view_shows_product_data
     Author:    Nate Baker, Main Bananas
     """
-     def setUp(self):
+    def setUp(self):
         '''This method sets up initial instances of Customer from the database'''
         user = User.objects.create_user(
             first_name = "Zoe",

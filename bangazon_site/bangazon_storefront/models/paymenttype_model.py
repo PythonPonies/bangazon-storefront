@@ -7,7 +7,7 @@ class PaymentType(models.Model):
 
         Author: Steven Holmes
     """
-    account_number = models.IntegerField(max_length=20)
+    account_number = models.IntegerField()
     payment_name = models.CharField(max_length=20, default='Unknown Payment Name')
     expiration_date = models.CharField(max_length=10)
     billing_address = models.CharField(max_length=35)

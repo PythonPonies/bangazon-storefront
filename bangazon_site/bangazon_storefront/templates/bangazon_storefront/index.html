@@ -16,7 +16,9 @@
         <li><a href="/payment/">Payment Types</a></li>
         <li><a href="/login/">Login</a></li>
         <li class="cart">
-          <a href="#"><span>3</span>View Cart</a>
+          <a href="/order/">
+            <span>{{ views.navigation_view.Navigation.get_products_for_active_customer }}</span>
+            View Cart</a>
         </li>
       </ul>
     </div>

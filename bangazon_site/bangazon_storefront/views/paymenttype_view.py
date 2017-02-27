@@ -13,7 +13,7 @@ class PaymentTypeView(TemplateView):
         return HttpResponseRedirect('/')
 
         
-def add_payment_type(request, account_number, payment_name, expiration_date, billing_address, customer):
+def add_payment_type(request):
     payment = request.POST
     PaymentType.objects.create(
         account_number = payment['account_number'],

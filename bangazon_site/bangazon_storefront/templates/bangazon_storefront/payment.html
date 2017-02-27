@@ -2,6 +2,8 @@
 
 {% block content %}
 
+    <form class="payment-type" action="{% url 'bangazon_storefront:add_payment_type' %}" method="post">
+
         {% csrf_token %}
         <input type='text' name="account_number" value='' placeholder="Enter Account Number">
         <input type='text' name='payment_name' value='' placeholder="Enter Payment Name (ie. Visa)">

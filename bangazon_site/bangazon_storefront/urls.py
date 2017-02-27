@@ -14,6 +14,10 @@ urlpatterns = [
     url(r'^(?P<product_id>[0-9]+)/$', product_details_view.detail, name='product_detail'),
     url(r'^payment', paymenttype_view.PaymentTypeView.as_view(), name='PaymentTypeView'),
     url(r'^payment', paymenttype_view.add_payment_type, name='add_payment_type'),
-    url(r'^add_product_to_order', addproducttoorder_view.add_product_to_order, name='add_product_to_order')
+    url(r'^add_product_to_order', addproducttoorder_view.add_product_to_order, name='add_product_to_order'),
+    url(r'^register/', customer_view.RegisterView.as_view(), name='register'),
+	url(r'^register_customer/', customer_view.register_customer, name='register_customer'),
+	url(r'^login/', customer_view.LoginView.as_view(), name='login'),
+	url(r'^login_customer/', customer_view.login_customer, name='login_customer'),
 ]
 

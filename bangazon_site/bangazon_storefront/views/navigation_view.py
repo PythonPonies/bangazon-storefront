@@ -8,6 +8,7 @@ class Navigation():
     """
 
     def get_products_for_active_customer():
+        print("get products runs!!!!")
         """
         get_products_for_active_customer is a method that returns the number of products that the active customer currently has.
         """

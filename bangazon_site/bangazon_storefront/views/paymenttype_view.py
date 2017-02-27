@@ -9,14 +9,16 @@ class PaymentTypeView(TemplateView):
         user_payments = PaymentType.objects.filter(userId=userId)
         return user_payments
 
-    def add_payment_type(request, account_number, payment_name, expiration_date, billing_address, customer):
-        payment = request.POST
-        PaymentType.objects.create(
-            account_number = payment['account_number'],
-            payment_name = payment['payment_name'],
-            expiration_date = payment['expiration_date'],
-            billing_address = payment['billing_address'],
-            customer = payment['customer']
-        )
 
         return HttpResponseRedirect('/')
+
+        
+def add_payment_type(request, account_number, payment_name, expiration_date, billing_address, customer):
+    payment = request.POST
+    PaymentType.objects.create(
+        account_number = payment['account_number'],
+        payment_name = payment['payment_name'],
+        expiration_date = payment['expiration_date'],
+        billing_address = payment['billing_address'],
+        customer = payment['customer']
+    )

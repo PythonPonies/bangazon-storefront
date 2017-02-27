@@ -1,0 +1,14 @@
+{% extends 'bangazon_storefront/index.html' %}
+
+{% block content %}
+
+        {% csrf_token %}
+        <input type='text' name="account_number" value='' placeholder="Enter Account Number">
+        <input type='text' name='payment_name' value='' placeholder="Enter Payment Name (ie. Visa)">
+        <input type='text' name='expiration_date' value='' placeholder="Enter Expiration Date">
+        <input type='text' name='billing_address' value='' placeholder="Enter Billing Address">
+        <button type='submit'>Submit</button>
+
+    </form>
+
+{% endblock %}

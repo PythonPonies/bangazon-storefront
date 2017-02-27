@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^customer', customer_view.CustomerView.as_view(), name='CustomerView'),
     url(r'^(?P<product_id>[0-9]+)/$', product_details_view.detail, name='product_detail'),
     url(r'^payment', paymenttype_view.PaymentTypeView.as_view(), name='PaymentTypeView'),
-    url(r'^add_product_to_order', addproducttoorder_view.add_product_to_order, name='add_product_to_order'),
+    url(r'^payment', paymenttype_view.add_payment_type(), name='add_payment_type'),
+    url(r'^add_product_to_order', addproducttoorder_view.add_product_to_order, name='add_product_to_order')
 ]
 

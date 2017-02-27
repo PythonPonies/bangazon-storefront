@@ -4,6 +4,7 @@ from bangazon_storefront.models.customer_model import *
 from bangazon_storefront.models.products_model import * 
 from bangazon_storefront.models.product_types_model import * 
 from bangazon_storefront.views.product_types_view import * 
+from bangazon_storefront.views.all_products_view import * 
 
 
 # Create your tests here.
@@ -46,43 +47,5 @@ class TestProductTypes(TestCase):
 
 
     def test_product_types_renders(self):
-        response = self.client.get('/productTypes/')
+        response = self.client.get('productTypes_id/all-products/')
         self.assertEqual(response.status_code, 200)
-
-    def test_display_all_product_types(self):
-
-        response = self.client.get('/productTypes/')
-        response_context = response.context['product_types']
-        print(response.context['product_types'], "response context looks like:")
-        product_types = ProductTypes.objects.all()
-        self.assertEqual(len(response_context), len(product_types))
-
-    
-
-    
-
-
-
-    # def _get_all_product_types(self):
-    #     response = ProductTypes.objects.all()
-    #     print(response, "this is the response for all product types hopefully")
-    #     self.assertContains(response, "Shoes")
-    #     self.assertContains(response, "Books")
-
-    # def _get_all_products_for_a_given_product_type(self):
-
-    #     #a product type category in the database
-    #     #add at least two product in a particular product type category
-    #     # a manner in which to select a specific product type category
-    #     #a getter function for all the products in a category
-
-    #     all_products = Products.objects.filter(category_name__exact="Books")
-    #     # an assertion that the product type category contains our listed products
-    #     self.assertContains(all_products, "Man's Search for Meaning")
-    #     self.assertContains(all_products, "The Four Agreements")
-
-
-
-
-
-

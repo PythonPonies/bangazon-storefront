@@ -2,6 +2,16 @@
 
 {% block content %}
 
+    <h3>Existing Payment Types</h3>
+    <ul id='payment-list' action="{% url 'bangazon_storefront:PaymentTypeView.get_payment_types' %" method="get">
+        {% for payment in payment_types %}
+        <li>{{ payment.payment_name }} [<u>#{{ payment.account_number }}</u>]</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+    <h3>Add New Payment Type</h3>
+
     <form class="payment-type" action="{% url 'bangazon_storefront:add_payment_type' %}" method="post">
 
         {% csrf_token %}
@@ -9,7 +19,7 @@
         <input type='text' name='payment_name' value='' placeholder="Enter Payment Name (ie. Visa)">
         <input type='text' name='expiration_date' value='' placeholder="Enter Expiration Date">
         <input type='text' name='billing_address' value='' placeholder="Enter Billing Address">
-        <button type='submit'>Submit</button>
+        <button type='submit'>Add</button>
 
     </form>
 

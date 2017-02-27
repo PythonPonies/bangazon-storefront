@@ -30,7 +30,6 @@ class PaymentTypeViewTest(TestCase):
                 user = self.user,
                 phone = "123-456-7890", 
                 shipping_address="123 Testing Way", 
-                date_account_created="2017-12-25"
                 )
 
         self.client.login(username = 'test_user', password = 'password')

@@ -53,7 +53,6 @@ class TestProductTypes(TestCase):
 
         response = self.client.get('/productTypes/')
         response_context = response.context['product_types']
-        print(response.context['product_types'], "response context looks like:")
         product_types = ProductTypes.objects.all()
         self.assertEqual(len(response_context), len(product_types))
 

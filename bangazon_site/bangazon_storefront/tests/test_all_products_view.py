@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
+from django.urls import reverse
 from bangazon_storefront.models.customer_model import * 
 from bangazon_storefront.models.products_model import * 
 from bangazon_storefront.models.product_types_model import * 
@@ -45,7 +46,9 @@ class TestProductTypes(TestCase):
         self.book2 = ProductsModel.objects.create(title="The Four Agreements", description="Book by Ruiz",
         seller_id=self.kyrie, categoryId=self.books, price=16.00, quantity=4)
 
-
-    def test_product_types_renders(self):
-        response = self.client.get('productTypes_id/all-products/')
+    def test_all_products_renders(self):
+        response = self.client.get(reverse('bangazon_storefront:allProductsView', args={self.books.pk}))
+        print(response.status_code, "what's the status code?")
+        print(response, "what's the response?")
         self.assertEqual(response.status_code, 200)
+        # self.assertEqual(response.context['productsType_id'].pk, self.books.pk)

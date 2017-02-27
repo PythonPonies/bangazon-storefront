@@ -1,5 +1,8 @@
 {% extends 'bangazon_storefront/index.html' %}
 
-{% block blockname %}
+{% block content  %}
     {% csrf_token %}
-{% endblock blockname %}
+    {{  products }}
+    {# {% productTypes_id %} #}
+
+{% endblock  %}

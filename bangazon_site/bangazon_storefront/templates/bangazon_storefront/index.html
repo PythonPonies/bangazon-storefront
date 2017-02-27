@@ -7,9 +7,23 @@
     <link rel="stylesheet" type="text/css" href="{% static 'bangazon_storefront/main.css' %}" />
   </head>
   <body>
-  <div class="navigation">Bagazon Navigation</div>
-    {% block content %}
-    {% endblock %}
+
+    <div class="menu">
+      <ul>
+        <h1>Bangazon</h1>
+        <li><a href="/productTypes/">View Products</a></li>
+        <li><a href="/add_product_to_order/">Add Product</a></li>
+        <li><a href="/payment/">Payment Types</a></li>
+        <li><a href="/login/">Login</a></li>
+        <li class="cart">
+          <a href="#"><span>3</span>View Cart</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrapper">
+      {% block content %}
+      {% endblock %}
+    </div>
 
     {# <script type="text/javascript" src="{% static 'main.js' %}"></script> #}
   </body>

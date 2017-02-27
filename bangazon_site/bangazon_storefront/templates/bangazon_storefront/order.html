@@ -1,0 +1,11 @@
+{% extends 'bangazon_storefront/index.html' %}
+
+{% block content %}
+<div>
+    {{ order.buyer.user.username }}
+    {%for product in order.products %}
+    <p>{{product.title}}</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

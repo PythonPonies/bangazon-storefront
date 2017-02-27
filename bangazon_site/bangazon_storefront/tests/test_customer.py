@@ -23,7 +23,6 @@ class TestCustomerModel(TestCase):
 			user= Ralph, 
 			phone = "333-333-3333", 
 			shipping_address="1234 Cool People Blvd.", 
-			date_account_created="2017-02-22",
 			)
 		
 		self.assertIsInstance(self.Ralph, Customer)

@@ -28,29 +28,25 @@ class TestOrder(TestCase):
             phone = "513498234",
             shipping_address="asdfasf"
         )
-        self.customer_order = order_model.Order.objects.create(
-            buyer=self.customer
+        product_type = product_types_model.ProductTypes.objects.create(category_name="Test")
+        self.product = products_model.ProductsModel.objects.create(
+            title="Cheese Pizza",
+            description="This is a super cheesy pizza.",
+            seller_id=self.customer,
+            categoryId=product_type,
+            price=9.85,
+            quantity=9
         )
-        print(self.customer_order.pk)
         self.client.login(
             username = "zoe",
             password = "1234asdf"
         )
 
-    def test_order_view(self):
+    def test_product_can_be_added_to_order(self):
         """
-        Test that a customer can view on order
+        test that a product can be added to an order
         """
-        response = self.client.get('/order/')
+        response = self.client.get(reverse('bangazon_storefront:product_detail', args={self.product.pk}))
+        print(response.context['product'])
         self.assertEqual(response.status_code, 200)
         
-
-    def test_customer_can_display_order_and_products_view(self):
-        """
-        Test that a customer can create an order on order view
-        """
-        response = self.client.get(reverse('bangazon_storefront:order'))
-        self.assertEqual(response.context['order'].pk, self.customer_order.pk)
-
-        
-       

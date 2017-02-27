@@ -1,11 +1,27 @@
 {% extends 'bangazon_storefront/index.html' %}
 
 {% block content %}
+
 <div>
     {{ order.buyer.user.username }}
-    {%for product in order.products %}
-    <p>{{product.title}}</p>
+    {{order.date_created}}
+<table>
+    <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity on Order</th>
+    </tr>
+     {%for product in products %}
+    <tr>
+        <td>{{product.title}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.id__count}}</td>
+    </tr>
     {% endfor %}
-</div>
-
+    <tr>
+        <th>Sum:</th>
+        <td>{{total}}</td>
+    </tr>
+</table>
+  
 {% endblock %}

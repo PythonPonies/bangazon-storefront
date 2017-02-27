@@ -3,7 +3,7 @@ from bangazon_storefront.models.products_model import *
 from bangazon_storefront.models.product_types_model import *
 from bangazon_storefront.models.customer_model import *
 from bangazon_storefront.views.product_details_view import *
-
+from django.urls import reverse
 # Run `python manage.py test bangazon_storefront`
 # from the root directory to run all tests
 
@@ -13,9 +13,9 @@ class ProductDetailsTestCase(TestCase):
 
     Arguments: TestCase identifies the classes as a test class.
     Methods:   test_product_detail_view_shows_product_data
-    Author:    Nate Baker, Main Bananas
+    Author:    Zoe LeBlanc, Main Bananas
     """
-     def setUp(self):
+    def setUp(self):
         '''This method sets up initial instances of Customer from the database'''
         user = User.objects.create_user(
             first_name = "Zoe",
@@ -47,5 +47,6 @@ class ProductDetailsTestCase(TestCase):
         """
         test_product_detail_view_shows_product_data tests if a product can be created and then displayed on a product details view.
         """
-        # response = self.client.get(reverse('bangazon_storefront:detail', kwards={'rp=}))
-        pass
+        response = self.client.get(reverse('bangazon_storefront:product_detail', args={self.product.pk}))
+        self.assertEqual(response.context['product'].pk, self.product.pk)
+        

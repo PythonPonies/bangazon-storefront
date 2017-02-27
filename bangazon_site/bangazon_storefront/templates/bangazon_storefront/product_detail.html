@@ -4,7 +4,7 @@
 {% csrf_token %}
 <h1>{{ product.title }}</h1>
 <h5>{{ product.description }}</h5>
-<p>${{ product.price }}</p> <p>#{{product.quantity}}</p>
+<p>${{ product.price }}</p> <p>{{product.quantity}}</p>
 
 <form class="" action="{% url 'bangazon_storefront:add_product_to_order' %}" method="post">
     {% csrf_token %}

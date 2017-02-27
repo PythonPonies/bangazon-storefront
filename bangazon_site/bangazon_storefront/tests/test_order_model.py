@@ -31,35 +31,16 @@ class TestOrder(TestCase):
         self.customer_order = order_model.Order.objects.create(
             buyer=self.customer
         )
-        product_type = product_types_model.ProductTypes.objects.create(category_name="Test")
-        self.product = products_model.ProductsModel.objects.create(
-            title="Cheese Pizza",
-            description="This is a super cheesy pizza.",
-            seller_id=self.customer,
-            categoryId=product_type,
-            price=9.85,
-            quantity=9
-        )
         self.client.login(
             username = "zoe",
             password = "1234asdf"
         )
 
-    def test_order_view(self):
+    def test_order_created(self):
         """
-        Test that a customer can view on order
+        Test that an order can be created
         """
-        response = self.client.get('/order/')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(order_model.Order.objects.get(buyer=self.customer).pk, self.customer_order.pk)
         
 
-    def test_customer_can_display_order_and_products_view(self):
-        """
-        Test that a customer can create an order on order view
-        """
-        response = self.client.get(reverse('bangazon_storefront:order'))
-        self.assertEqual(response.context['order'].pk, self.customer_order.pk)
-
-
-        
-       
+    

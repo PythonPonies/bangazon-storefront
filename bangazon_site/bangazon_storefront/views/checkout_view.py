@@ -4,18 +4,18 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from bangazon_storefront.models.paymenttype_model import PaymentType
 from bangazon_storefront.models.customer_model import Customer
+from bangazon_storefront.models.order_model import Order
 
-class CheckoutView(TemplateView):
-    template_name = 'bangazon_storefront/checkout.html'
+# class CheckoutView(TemplateView):
+    # template_name = 'bangazon_storefront/checkout.html'
 
 def checkout(request):
-    # customer = Customer.objects.get(user=request.user)
-    # payment_types = PaymentType.objects.filter(customer_id = customer)
-    # customer_products = 
-    # context = {'payment_types': payment_types, }
+    customer = Customer.objects.get(user=request.user)
+    payment_types = PaymentType.objects.filter(customer_id = customer)
+    # buyer_id = Order.objects.get(buyer_id = customer)
+    context = {'payment_types': payment_types}
 
-    # return render(request, 'bangazon_storefront/payment.html', context)
-    pass
+    return render(request, 'bangazon_storefront/checkout.html', context)
 
 def confirm_payment(request):
     # payment = request.POST

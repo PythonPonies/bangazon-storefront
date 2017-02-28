@@ -69,12 +69,6 @@ class CompleteOrderViewsTests(TestCase):
         response = self.client.get('/checkout/')
         self.assertEqual(response.status_code, 200)
 
-    def test_user_can_complete_order_on_checkout_view(self):
-        """
-        Test that a user an complete the order process via the checkout view
-        """
-        response = self.client.get(reverse('bangazon_storefront:checkout'))
-        self.assertEqual(response.context['order'].pk, self.customer_order.pk)
 
     def test_user_can_select_payment_type_for_order(self):
         available_payment_types = PaymentType.objects.filter(customer_id = 1)

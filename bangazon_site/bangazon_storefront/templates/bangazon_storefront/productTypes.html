@@ -1,5 +1,17 @@
 {% extends 'bangazon_storefront/index.html' %}
+{% block content %}
 
-{% block blockname %}
-    {% csrf_token %}
-{% endblock blockname %}
+<h1>Product Types</h1>
+{% csrf_token %}
+    <ul>
+        {% for product_type in product_types %}
+            <li>
+                <a href="{% url 'bangazon_storefront:allProductsView' product_type.id %}">{{product_type.category_name}}</a>
+            </li>
+            {% empty %}
+                <li>No product types have been added yet.</li>
+        {% endfor %}
+
+    </ul>
+
+{% endblock content %}

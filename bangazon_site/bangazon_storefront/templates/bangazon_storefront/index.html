@@ -4,12 +4,29 @@
   <head>
     <meta charset="utf-8">
     <title>Bangazon Site</title>
-    {# <link rel="stylesheet" href="{% static 'main.css' %}"> #}
+    <link rel="stylesheet" type="text/css" href="{% static 'bangazon_storefront/main.css' %}" />
   </head>
   <body>
-    {% block content %}
-    {% endblock %}
-    
+
+    <div class="menu">
+      <ul>
+        <h1>Bangazon</h1>
+        <li><a href="/productTypes/">View Products</a></li>
+        <li><a href="/add_product_to_sell/">Add Product</a></li>
+        <li><a href="/payment/">Payment Types</a></li>
+        <li><a href="/login/">Login</a></li>
+        <li class="cart">
+          <a href="/order/">
+            <span>{{ order_number }}</span>
+            View Cart</a>
+        </li>
+      </ul>
+    </div>
+    <div class="wrapper">
+      {% block content %}
+      {% endblock %}
+    </div>
+
     {# <script type="text/javascript" src="{% static 'main.js' %}"></script> #}
   </body>
 </html>

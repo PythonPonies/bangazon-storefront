@@ -1,12 +1,10 @@
-
 from django.conf.urls import url, include
 from django.contrib import admin
-from bangazon_storefront.views import *
 from bangazon_storefront.views import *
 
 app_name = 'bangazon_storefront'
 urlpatterns = [
-    url(r'^$', index_view.IndexView.as_view(), name='index'),
+    url(r'^$', index_view.Index, name='index'),
     url(r'^customer', customer_view.CustomerView.as_view(), name='CustomerView'),
     url(r'^order/', createorder_view.display_order_and_products, name='order'),
     url(r'^productTypes/', product_types_view.productTypes, name="productTypes"),
@@ -20,4 +18,3 @@ urlpatterns = [
 	url(r'^login/', customer_view.LoginView.as_view(), name='login'),
 	url(r'^login_customer/', customer_view.login_customer, name='login_customer'),
 ]
-

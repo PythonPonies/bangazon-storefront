@@ -10,5 +10,5 @@ class PaymentType(models.Model):
     account_number = models.IntegerField()
     payment_name = models.CharField(max_length=20, default='Unknown Payment Name')
     expiration_date = models.CharField(max_length=10)
-    billing_address = models.CharField(max_length=35)
+    billing_address = models.CharField(max_length=100)
     customer = models.ForeignKey(Customer, null=True, on_delete=models.CASCADE)

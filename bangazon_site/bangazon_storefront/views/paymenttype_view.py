@@ -1,22 +1,26 @@
 from django.views.generic.base import TemplateView
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.models import User
 from bangazon_storefront.models.paymenttype_model import PaymentType
+from bangazon_storefront.models.customer_model import Customer
 
-class PaymentTypeView(TemplateView):
+def get_payment_types(request):
+    customer = Customer.objects.get(user=request.user)
+    print(customer)
+    payment_types = PaymentType.objects.filter(customer_id = customer)
+    context = {'payment_types': payment_types}
 
-    template_name = 'bangazon_storefront/payment.html'
+    return render(request, 'bangazon_storefront/payment.html', context)
 
-    def get_payment_types(request, customerId):
-        user_payments = PaymentType.objects.filter(userId=userId)
-        return user_payments
+def add_payment_type(request):
+    payment = request.POST
+    PaymentType.objects.create(
+        account_number = payment['account_number'],
+        payment_name = payment['payment_name'],
+        expiration_date = payment['expiration_date'],
+        customer = Customer.objects.get(user=request.user),
+        billing_address = payment['billing_address'],
+    )
 
-    def add_payment_type(request, account_number, payment_name, expiration_date, billing_address, customer):
-        payment = request.POST
-        PaymentType.objects.create(
-            account_number = payment['account_number'],
-            payment_name = payment['payment_name'],
-            expiration_date = payment['expiration_date'],
-            billing_address = payment['billing_address'],
-            customer = payment['customer']
-        )
-
-        return HttpResponseRedirect('/')
+    return HttpResponseRedirect('payment')

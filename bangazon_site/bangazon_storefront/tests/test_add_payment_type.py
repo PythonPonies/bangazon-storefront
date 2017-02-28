@@ -73,6 +73,14 @@ class PaymentTypeViewTest(TestCase):
                 billing_address = '123 Test Way', 
                 customer = self.customer
                 )
+
+        PaymentType.objects.create(
+                        account_number = 1122334455, 
+                        payment_name = 'AmEx', 
+                        expiration_date = '01-01-18', 
+                        billing_address = '12456 Testing Drive', 
+                        customer = self.customer
+                        )
         
         existing_payment_types = PaymentType.objects.filter(customer_id = 1)
         for item in existing_payment_types:

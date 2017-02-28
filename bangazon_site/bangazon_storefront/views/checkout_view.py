@@ -12,7 +12,7 @@ from bangazon_storefront.models.order_model import Order
 def checkout(request):
     customer = Customer.objects.get(user=request.user)
     payment_types = PaymentType.objects.filter(customer_id = customer)
-    # buyer_id = Order.objects.get(buyer_id = customer)
+    order = Order.objects.get(buyer_id = customer)
     context = {'payment_types': payment_types}
 
     return render(request, 'bangazon_storefront/checkout.html', context)

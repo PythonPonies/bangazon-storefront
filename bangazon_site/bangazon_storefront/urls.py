@@ -1,12 +1,8 @@
 from django.conf.urls import url, include
 from django.contrib import admin
-<<<<<<< HEAD
 from bangazon_storefront.views import * 
 from bangazon_storefront.views import checkout_view 
- 
-=======
-from bangazon_storefront.views import *
->>>>>>> b2676f26b10216c40b27a2e16a6cb671ce17f1f2
+
 
 app_name = 'bangazon_storefront'
 urlpatterns = [

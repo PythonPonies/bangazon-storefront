@@ -18,4 +18,3 @@ urlpatterns = [
 	url(r'^login/', customer_view.LoginView.as_view(), name='login'),
 	url(r'^login_customer/', customer_view.login_customer, name='login_customer'),
 ]
-

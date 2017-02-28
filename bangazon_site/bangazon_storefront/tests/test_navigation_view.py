@@ -17,7 +17,6 @@ class NavigationViewTestCase(TestCase):
         """
         test_navigation_bar_knows_number_of_products_on_order is a method to test if the navigation bar has a method that returns the number of products on an order for the active user.
         """
-
-        number_of_products = Navigation.get_products_for_active_customer()
+        number_of_products = Navigation.get_products_for_active_customer(request)
         it_is_a_number = isinstance(number_of_products, int)
         self.assertTrue(it_is_a_number)

@@ -1,4 +1,3 @@
-from django.views.generic.base import TemplateView
 from bangazon_storefront.views.navigation_view import *
 from django.shortcuts import render
 

@@ -18,14 +18,5 @@ def checkout(request):
     return render(request, 'bangazon_storefront/checkout.html', context)
 
 def confirm_payment(request):
-    # payment = request.POST
-    # PaymentType.objects.create(
-    #     account_number = payment['account_number'],
-    #     payment_name = payment['payment_name'],
-    #     expiration_date = payment['expiration_date'],
-    #     customer = Customer.objects.get(user=request.user),
-    #     billing_address = payment['billing_address'],
-    # )
 
-    # return HttpResponseRedirect('checkout')
     pass

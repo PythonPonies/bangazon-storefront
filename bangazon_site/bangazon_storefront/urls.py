@@ -25,5 +25,8 @@ urlpatterns = [
     url(r'^logout/', customer_view.logout_customer, name= 'logout'),
     url(r'^login_customer/', customer_view.login_customer, name='login_customer'),
     url(r'^checkout', checkout_view.checkout, name='checkout'),
-	url(r'^confirm_order', checkout_view.confirm_order, name='confirm_order')
+	url(r'^confirm_order', checkout_view.confirm_order, name='confirm_order'),
+    url(r'^add/', add_product_to_list_view.renderProduct, name='add'),
+    url(r'^addProduct/', add_product_to_list_view.addProduct, name='addProduct'),
+
 ]

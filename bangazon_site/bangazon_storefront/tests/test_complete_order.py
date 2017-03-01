@@ -50,11 +50,11 @@ class CompleteOrderViewsTests(TestCase):
                 )
 
         product_type = ProductTypes.objects.create(category_name="Testing")
-        self.product = ProductsModel.objects.create(
+        self.product = Product.objects.create(
             title="Robot",
             description="Yahoo for robots",
-            seller_id=self.customer,
-            categoryId=product_type,
+            seller=self.customer,
+            product_type=product_type,
             price=9.85,
             quantity=9
         )

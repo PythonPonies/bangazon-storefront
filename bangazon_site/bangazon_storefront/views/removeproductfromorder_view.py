@@ -8,12 +8,12 @@ from django.contrib import messages
 def remove_product_from_order(request):
     """This method gets data from the product detail page about the product, gets the customer order, and adds product to the order. Then it redirects to products type page"""
     data = request.POST
-    product = products_model.ProductsModel.objects.get(pk=data['product_id'])
+    product = products_model.Product.objects.get(pk=data['product_id'])
     customer = customer_model.Customer.objects.get(user=request.user)
     order = order_model.Order.objects.get_or_create(buyer = customer, payment_complete=0)
     if product.quantity > 0:
         product.quantity = product.quantity + 1
-        products_model.ProductsModel.objects.filter(pk=product.pk).update(quantity=product.quantity)
+        products_model.Product.objects.filter(pk=product.pk).update(quantity=product.quantity)
         item = order_model.Product_On_Order.objects.filter(
         order=order[0],
         product = product   

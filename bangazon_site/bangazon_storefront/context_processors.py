@@ -22,7 +22,7 @@ def navigation(context):
                 },
                 {
                     'name':'Add Product',
-                    'link': '/add_product_to_sell/'
+                    'link': '/add/'
                 },
                 {
                     'name':'Payment Types',

@@ -3,7 +3,7 @@
 {% block content %}
 
     <h3>Existing Payment Types</h3>
-    <ul id='payment-list' action="{% url 'bangazon_storefront:PaymentTypeView.get_payment_types' %" method="get">
+    <ul id='payment-list' action="{% url 'bangazon_storefront:checkout' %" method="get">
         {% for payment in payment_types %}
         <li>{{ payment.payment_name }} [<u>#{{ payment.account_number }}</u>]</li>
         {% endfor %}

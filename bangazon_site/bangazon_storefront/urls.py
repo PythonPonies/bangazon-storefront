@@ -1,6 +1,8 @@
 from django.conf.urls import url, include
 from django.contrib import admin
-from bangazon_storefront.views import *
+from bangazon_storefront.views import * 
+from bangazon_storefront.views import checkout_view 
+
 
 app_name = 'bangazon_storefront'
 urlpatterns = [
@@ -18,6 +20,8 @@ urlpatterns = [
     url(r'^register/', customer_view.RegisterView.as_view(), name='register'),
 	url(r'^register_customer/', customer_view.register_customer, name='register_customer'),
 	url(r'^login/', customer_view.LoginView.as_view(), name='login'),
-	url(r'^login_customer/', customer_view.login_customer, name='login_customer'),
     url(r'^logout/', customer_view.logout_customer, name= 'logout'),
+    url(r'^login_customer/', customer_view.login_customer, name='login_customer'),
+    url(r'^checkout', checkout_view.checkout, name='checkout'),
+	url(r'^confirm_order', checkout_view.confirm_order, name='confirm_order')
 ]

@@ -37,6 +37,12 @@
         <td>{{total}}</td>
     </tr>
 </table>
+<div class="row">
+    <form class="form-group col-sm-1"  action="{% url 'bangazon_storefront:checkout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" value="{{order.id}}" name="order_id">CHECKOUT</button>
+    </form>
+</div>
 </div>
   
 {% endblock %}

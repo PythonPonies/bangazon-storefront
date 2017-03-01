@@ -2,10 +2,24 @@
 
 {% block content %}
 {% csrf_token %}
-<div class="row">
+<div class="row text-center">
     <h1>Welcome to Bangazon Storefront</h1>
 </div>
-<div class="row">
+<div class="row text-center">
     <h5>Nashville Software School's Premier E-commerce Platform</h5>
 </div>
+{%for type in producttypes%}
+    <div class="row col-sm-4">
+        <h2 style="text-transform:uppercase;" class="text-center">{{type.category_name}}</h2>
+        <ul class="list-group">
+            {%for product in products %}
+                {%if product.product_type == type %}
+                    <li class="list-group-item">
+                    <span class="badge">{{product.quantity}}</span>
+                    {{product.title}}</li>
+                {%endif%}
+            {%endfor%}
+        </ul>
+    </div>
+{%endfor%}
 {% endblock %}

@@ -13,5 +13,5 @@ class Product(models.Model):
     description = models.CharField(max_length=500, blank=True)
     seller = models.ForeignKey(Customer, blank = True)
     product_type = models.ForeignKey(ProductTypes, blank=True)
-    price = models.DecimalField(max_digits=5, decimal_places=2)
+    price = models.DecimalField(max_digits=20, decimal_places=2)
     quantity = models.IntegerField(default=1)

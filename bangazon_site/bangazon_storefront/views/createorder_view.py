@@ -14,7 +14,8 @@ def display_order_and_products(request):
     order = order_model.Order.objects.get_or_create(buyer = customer, payment_complete=0)
     order_item = order[0]
     products = order_item.products.all().values().annotate(Count('id')).order_by('id')
+    all_products = products_model.Product.objects.all().order_by('id')
     total =  order_item.products.aggregate(Sum('price'))
    
-    context = {'order': order_item, 'products': products, 'total': total['price__sum']}
+    context = {'order': order_item, 'products': products, 'total': total['price__sum'], 'all_products': all_products}
     return render(request, 'bangazon_storefront/order.html', context)

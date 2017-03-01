@@ -15,27 +15,33 @@ def navigation(context):
             order = order_model.Order.objects.get_or_create(buyer=customer[0], payment_complete=0)
             order_number = order[0]
             products = order_number.products.all().count()
+            welcome_message = 'Welcome '+customer[0].user.first_name + ' ' + customer[0].user.last_name
             list_of_nav = [ 
                 {
-                    'name':'View Products',
-                    'link': '/productTypes/'
+                    'name':'Product Types',
+                    'link': '/productTypes/',
+                    'prop': 'left'
                 },
                 {
-                    'name':'Add Product',
-                    'link': '/add/'
+                    'name':'Sell Product',
+                    'link': '/add/',
+                    'prop': 'left'
                 },
                 {
-                    'name':'Payment Types',
-                    'link': '/payment/'
-                },
-                {
-                    'name':'View Cart',
+                    'name': 'View Cart',
                     'link': '/order/',
-                    'number': products
+                    'number': products,
+                    'prop': 'right'
                 },
                 {
                     'name':'Logout',
-                    'link': '/logout/'
+                    'link': '/logout/',
+                    'prop': 'right'
+                },
+                {
+                    'name': welcome_message,
+                    'link': '#',
+                    'prop': 'right'
                 }
             ]
     else:

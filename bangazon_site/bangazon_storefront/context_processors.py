@@ -29,13 +29,13 @@ def navigation(context):
                     'link': '/payment/'
                 },
                 {
-                    'name':'Logout',
-                    'link': '/logout/'
-                },
-                {
                     'name':'View Cart',
                     'link': '/order/',
                     'number': products
+                },
+                {
+                    'name':'Logout',
+                    'link': '/logout/'
                 }
             ]
     else:

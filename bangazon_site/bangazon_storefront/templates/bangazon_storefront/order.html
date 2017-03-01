@@ -16,9 +16,20 @@
     </thead>
      {%for product in products %}
     <tr>
-        <td>{{product.title}}</td>
+        <td><a href="{% url 'bangazon_storefront:product_detail' product.id %}">{{product.title}}</a></td>
         <td>{{product.price}}</td>
-        <td>{{product.id__count}}</td>
+        <td><p class="float-left col-sm-10">{{product.id__count}}</p>
+            <form class="form-group col-sm-1"  action="{% url 'bangazon_storefront:add_product_to_order' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" value="{{product.id}}" name="product_id"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+             
+            </form>
+            <form class="form-group col-sm-1"  action="{% url 'bangazon_storefront:remove_product_from_order' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" value="{{product.id}}" name="product_id"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+             
+            </form>
+        </td>
     </tr>
     {% endfor %}
     <tr>

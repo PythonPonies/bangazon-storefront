@@ -17,4 +17,7 @@ urlpatterns = [
 	url(r'^register_customer/', customer_view.register_customer, name='register_customer'),
 	url(r'^login/', customer_view.LoginView.as_view(), name='login'),
 	url(r'^login_customer/', customer_view.login_customer, name='login_customer'),
+    url(r'^add/', add_product_to_list_view.renderProduct, name='add'),
+    url(r'^addProduct/', add_product_to_list_view.addProduct, name='addProduct'),
+
 ]

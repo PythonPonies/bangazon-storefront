@@ -9,19 +9,16 @@
   <body>
 
     <div class="menu">
-      <ul>
-        <h1>Bangazon</h1>
-        <li><a href="/productTypes/">View Products</a></li>
-        <li><a href="/add_product_to_sell/">Add Product</a></li>
-        <li><a href="/payment/">Payment Types</a></li>
-        <li><a href="/login/">Login</a></li>
-        <li class="cart">
-          <a href="/order/">
-            <span>{{ order_number }}</span>
-            View Cart</a>
+    <ul>
+      <h1>Bangazon</h1>
+      {%for item in navigation%}
+        
+        <li> <a href="{{item.link}}">{{ item.number }}  
+        {{item.name}}</a>
         </li>
-      </ul>
-    </div>
+      {% endfor %}
+    </ul>
+  </div>
     <div class="wrapper">
       {% block content %}
       {% endblock %}

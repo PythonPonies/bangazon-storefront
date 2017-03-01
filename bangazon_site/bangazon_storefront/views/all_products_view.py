@@ -8,7 +8,6 @@ from bangazon_storefront.models.products_model import *
 def all_products(request, productTypes_id):
     all_products = ProductsModel.objects.filter(categoryId=productTypes_id)
     product_type_name = ProductTypes.objects.get(id=productTypes_id)
-    print(all_products, "these are products in the all_products_view line 10")
     context =  {'products' : all_products, "productTypes_id": productTypes_id, "product_type_name":product_type_name.category_name} 
     return render(request, 'bangazon_storefront/all_products.html', context)
 

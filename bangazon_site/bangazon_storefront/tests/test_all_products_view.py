@@ -38,7 +38,6 @@ class TestProductTypes(TestCase):
         
         user = User.objects.create_user(first_name='Kyrie', last_name='Irving', username='unc Drew', email='ky@cl.com', password='ispassword')
         self.kyrie = Customer.objects.create(user=user, phone='4257896453', shipping_address="The Flat Earth", )
-        # print(self.kyrie.pk, "this is Kyrie's primary key")
         self.shoes = ProductTypes.objects.create(category_name="Shoes")
         self.books = ProductTypes.objects.create(category_name="Books")
         self.book1 = ProductsModel.objects.create(title="Man's Search for Meaning", description="Book by Frankl",
@@ -48,7 +47,5 @@ class TestProductTypes(TestCase):
 
     def test_all_products_renders(self):
         response = self.client.get(reverse('bangazon_storefront:allProductsView', args={self.books.pk}))
-        print(response.status_code, "what's the status code?")
-        print(response, "what's the response?")
         self.assertEqual(response.status_code, 200)
         # self.assertEqual(response.context['productsType_id'].pk, self.books.pk)

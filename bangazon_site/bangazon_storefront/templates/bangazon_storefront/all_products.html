@@ -1,0 +1,19 @@
+{% extends 'bangazon_storefront/index.html' %}
+{% block content  %}
+
+<h2>Products for {{product_type_name}}</h2>
+
+<ul>
+    {% for product  in products  %}
+        <li>
+            <a href="{% url 'bangazon_storefront:product_detail' product.id %}">{{product.title}}</a>
+        </li>
+        {% empty %}
+            <li>No products have been added to this product type...</li>
+    {% endfor %}
+
+</ul>
+
+
+
+{% endblock  %}

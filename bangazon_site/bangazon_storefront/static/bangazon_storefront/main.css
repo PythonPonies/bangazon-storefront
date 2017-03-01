@@ -67,3 +67,26 @@ li {
   font-size: 1.3em;
   line-height: 1.6em;
 }
+
+.item:hover {
+    background-color: #E9E9E9;
+}
+
+.product-div:hover {
+    text-decoration: none;
+}
+
+.product-type {
+    color: #2E2E2E;
+}
+
+.twenty-recent {
+    font-size: .90em;
+    font-style: italic;
+    color: black;
+}
+
+.list-group-item {
+    font-size: .95em;
+    color: black;
+}

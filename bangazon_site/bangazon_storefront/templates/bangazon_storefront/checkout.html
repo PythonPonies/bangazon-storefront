@@ -2,13 +2,14 @@
 
 {% block content %}
 <h3>Choose Payment Type</h3>
-<form id='payment-list' action="{% url 'bangazon_storefront:confirm_payment' %" method="get">
-    {% for payment in payment_types %}
+<form id='payment-list' action="{% url 'bangazon_storefront:confirm_order' %}" method="post">
 
-    <input type='radio'>
+    {% csrf_token %}
+
+    {% for payment in payment_types %}
+    <input type='radio' value='{{ payment.pk }}' name='payment_type_id'>
     {{ payment.payment_name }} [<u>#{{ payment.account_number }}</u>]
     </input>
-
     {% endfor %}
 
     <br><br>
@@ -16,6 +17,5 @@
     <button type='submit'>Confirm Order</button>
 
 </form>
-
 
 {% endblock %}

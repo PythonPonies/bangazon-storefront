@@ -1,22 +1,35 @@
-from django.views.generic.base import TemplateView
-from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from bangazon_storefront.models.paymenttype_model import PaymentType
 from bangazon_storefront.models.customer_model import Customer
 from bangazon_storefront.models.order_model import Order
 
-# class CheckoutView(TemplateView):
-    # template_name = 'bangazon_storefront/checkout.html'
-
 def checkout(request):
+    """
+    The checkout method serves data to the checkout template.
+
+    The customer will be returned payment methods associated with their account so that they can complete an order.
+
+    Author: Steven Holmes
+    """
     customer = Customer.objects.get(user=request.user)
     payment_types = PaymentType.objects.filter(customer_id = customer)
-    order = Order.objects.get(buyer_id = customer)
     context = {'payment_types': payment_types}
 
     return render(request, 'bangazon_storefront/checkout.html', context)
 
-def confirm_payment(request):
+def confirm_order(request):
+    """
+    The confirm_order method updates the current order data to associate a payment method with it and mark it's payment as complete.
 
-    pass
+    Author: Steven Holmes
+    """
+    data = request.POST
+    customer = Customer.objects.get(user=request.user)
+    order = Order.objects.get(buyer_id = customer)
+    order.payment_complete = 1
+    order.payment_type_id = data['payment_type_id']
+    order.save()
+
+    return HttpResponseRedirect('productTypes')

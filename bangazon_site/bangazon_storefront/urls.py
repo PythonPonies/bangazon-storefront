@@ -19,5 +19,6 @@ urlpatterns = [
 	url(r'^register_customer/', customer_view.register_customer, name='register_customer'),
 	url(r'^login/', customer_view.LoginView.as_view(), name='login'),
     url(r'^login_customer/', customer_view.login_customer, name='login_customer'),
-	url(r'^checkout', checkout_view.checkout, name='checkout')
+    url(r'^checkout', checkout_view.checkout, name='checkout'),
+	url(r'^confirm_order', checkout_view.confirm_order, name='confirm_order')
 ]

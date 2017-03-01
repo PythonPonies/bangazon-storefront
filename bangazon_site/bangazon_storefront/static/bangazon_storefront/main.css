@@ -67,3 +67,42 @@ li {
   font-size: 1.3em;
   line-height: 1.6em;
 }
+
+/*products*/
+
+.products {
+    background-color: #eee;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.wrapper p {
+    font-size: 1.2em;
+}
+
+.wrapper a:hover {
+    text-decoration: none;
+}
+
+.products:hover {
+    background-color: #FAEC94;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.products h2 {
+    padding: 0;
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.products .price {
+    text-align: right;
+    line-height: 1.3em;
+    padding: 0 0 0 0;
+    margin: -20px 0 0 0;
+    font-size: 1.2em;
+}

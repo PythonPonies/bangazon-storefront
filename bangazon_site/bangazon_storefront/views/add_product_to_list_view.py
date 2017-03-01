@@ -10,24 +10,24 @@ from bangazon_storefront.models import *
 
 	# When adding a product, users will be directed to a new template with a form for inputs:
 	# Function for adding and persisting products: 
-def addProduct(self, request): 
+def addProduct(request): 
 	data = request.POST
+	print(data['category'])
 	seller = customer_model.Customer.objects.get(user=request.user)
+	product_type = product_types_model.ProductTypes.objects.get(category_name=data['category'])
 	new_product = products_model.Product.objects.create(
 		title = data['title'],
 		description = data['description'], 
 		seller = seller,
-		product_type = data['category'], 
+		product_type = product_type, 
 		price = data['price'], 
 		quantity = data['quantity']
 	)
 	return HttpResponseRedirect('/home')
 
 def renderProduct(request):
-	categories = product_types_model.ProductTypes.objects.all()
-	print(categories)
-	return render(request, 'bangazon_storefront/add_product.html', {'categories': categories})
-
+    categories = product_types_model.ProductTypes.objects.all()
+    return render(request, 'bangazon_storefront/add_product.html', {'categories': categories})
 
 
 

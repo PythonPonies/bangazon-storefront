@@ -1,14 +1,14 @@
 {% extends 'bangazon_storefront/index.html' %}
 {% block content %}
   <h1>Add a new product to sell:</h1>
-  <form class="" action="{% url 'bangazon_storefront:add' %}" method="post">
+  <form class="" action="{% url 'bangazon_storefront:addProduct' %}" method="post">
     {% csrf_token %}
     <input type="text" name="title" value="" placeholder="Title">
     <input type="text" name="description" value="" placeholder="Description">
 <!--     <input type="password" name="seller_id" value="" placeholder="Seller Id">
  -->
     {% for category in categories %}
-    <input type="radio" name="category" value="{{category.id}}"> {{category.category_name}}
+    <input type="radio" name="category" value="{{category.category_name}}"> {{category.category_name}}
     {% endfor %} 
     <input type="text" name="price" value="" placeholder="Price">
     <input type="text" name="quantity" value="" placeholder="Quantity">

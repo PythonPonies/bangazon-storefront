@@ -2,36 +2,37 @@
 {% block content %}
   <h1>Add Products:</h1>
 
-  <h5>Your product type not exist? Create a new one. </h5>
+  <h5>Your product type not listed? Create a new one. </h5>
   
   {# Add a new product type  #}
    <form class="productTypes" action="{% url 'bangazon_storefront:add_product_type' %}" method="post">
 
   {% csrf_token %}
-       <input type='text' name="category_name" value='' placeholder="Enter new product type">
-       <button type='submit'>Add</button>
+       <input class="cool-buttons" type='text' name="category_name" value='' placeholder="Enter new product type">
+       <button class="btn btn-default cool-buttons" type='submit'>Add</button>
    </form><br>
 
   <form class="" action="{% url 'bangazon_storefront:addProduct' %}" method="post">
     {% csrf_token %}
-
-    <select>
-      <optgroup label="Product Types">
-    {% for category in categories %}
-        <option value="{{category.category_name}}">{{category.category_name}}</option>
-    {% endfor %} 
-      </optgroup>
-    </select>
+    <div class="dropdown cool-buttons">
+      <select class="col-sm-3 cool-buttons" label="Product Types">
+        <optgroup label="Product Types">
+      {% for category in categories %}
+          <option value="{{category.category_name}}">{{category.category_name}}</option>
+      {% endfor %} 
+        </optgroup>
+      </select>
+    </div>
+    <br>
     
+    <input type="text" class="btn btn-default cool-buttons" name="title" value="" placeholder="Title"><br>
+    <input type="text" class="btn btn-default cool-buttons" name="description" value="" placeholder="Description">
     <br>
-    <input type="text" name="title" value="" placeholder="Title"><br>
-    <input type="text" name="description" value="" placeholder="Description">
+    <input type="text" class="btn btn-default cool-buttons" name="price" value="" placeholder="Price">
     <br>
-    <input type="text" name="price" value="" placeholder="Price">
-    <br>
-    <input type="text" name="quantity" value="" placeholder="Quantity">
+    <input type="text" class="btn btn-default cool-buttons" name="quantity" value="" placeholder="Quantity">
     <br><br>
-    <button type="submit" name="button">Sell Product</button>
+    <button type="submit" class="btn btn-default cool-buttons" name="button">Sell Product</button>
   </form>
 
 {% endblock %}

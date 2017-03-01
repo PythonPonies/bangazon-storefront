@@ -106,3 +106,9 @@ li {
     margin: -20px 0 0 0;
     font-size: 1.2em;
 }
+
+.cool-buttons{
+    background-color: #333 !important;
+    color: #FAEC94 !important;
+
+}

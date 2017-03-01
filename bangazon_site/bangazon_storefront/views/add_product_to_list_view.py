@@ -12,7 +12,6 @@ def addProduct(request):
 			# Function for adding and persisting products: 
 	"""
 	data = request.POST
-	print(data['category'])
 	seller = customer_model.Customer.objects.get(user=request.user)
 	product_type = product_types_model.ProductTypes.objects.get(category_name=data['category'])
 	new_product = products_model.Product.objects.create(
@@ -23,7 +22,7 @@ def addProduct(request):
 		price = data['price'], 
 		quantity = data['quantity']
 	)
-	return HttpResponseRedirect('/home')
+	return HttpResponseRedirect('/Add/')
 
 def renderProduct(request):
     categories = product_types_model.ProductTypes.objects.all()

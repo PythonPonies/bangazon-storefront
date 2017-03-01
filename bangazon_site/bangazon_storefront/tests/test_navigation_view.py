@@ -1,6 +1,5 @@
 from django.test import TestCase
-from bangazon_storefront.views.navigation_view import *
-from bangazon_storefront.models.products_model import *
+from bangazon_storefront.models import *
 from django.urls import reverse
 from django.contrib.auth.models import Permission, User
 

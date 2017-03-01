@@ -13,7 +13,7 @@ class Order(models.Model):
 
     Author: Zoe LeBlanc, Main Bananas
     '''
-    products = models.ManyToManyField('ProductsModel', through='Product_On_Order')
+    products = models.ManyToManyField('Product', through='Product_On_Order')
     date_created = models.DateTimeField(auto_now_add=True)
     buyer = models.ForeignKey(customer_model.Customer, null=True, on_delete=models.CASCADE, related_name='orders')
     payment_type = models.ForeignKey(paymenttype_model.PaymentType, blank=True, null=True, on_delete=models.CASCADE)
@@ -28,5 +28,5 @@ class Product_On_Order(models.Model):
 
     Author: Zoe LeBlanc, Main Bananas
     '''
-    product = models.ForeignKey(products_model.ProductsModel, null=True, related_name='products_on_order')
+    product = models.ForeignKey(products_model.Product, null=True, related_name='products_on_order')
     order = models.ForeignKey(Order, null=True, related_name='products_on_order')

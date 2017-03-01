@@ -29,11 +29,11 @@ class TestOrder(TestCase):
             shipping_address="asdfasf"
         )
         product_type = product_types_model.ProductTypes.objects.create(category_name="Test")
-        self.product = products_model.ProductsModel.objects.create(
+        self.product = products_model.Product.objects.create(
             title="Cheese Pizza",
             description="This is a super cheesy pizza.",
-            seller_id=self.customer,
-            categoryId=product_type,
+            seller=self.customer,
+            product_type=product_type,
             price=9.85,
             quantity=9
         )

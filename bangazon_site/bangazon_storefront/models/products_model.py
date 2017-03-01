@@ -2,7 +2,7 @@ from django.db import models
 from bangazon_storefront.models.product_types_model import *
 from bangazon_storefront.models.customer_model import *
 
-class ProductsModel(models.Model):
+class Product(models.Model):
     """
     The ProductModel class creates the product table and all related fields in the database.
 
@@ -11,7 +11,7 @@ class ProductsModel(models.Model):
     """
     title = models.CharField(max_length=200, blank=True)
     description = models.CharField(max_length=500, blank=True)
-    seller_id = models.ForeignKey(Customer)
-    categoryId = models.ForeignKey(ProductTypes)
+    seller = models.ForeignKey(Customer, blank = True)
+    product_type = models.ForeignKey(ProductTypes, blank=True)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     quantity = models.IntegerField(default=1)

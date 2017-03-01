@@ -22,20 +22,20 @@ def navigation(context):
                 },
                 {
                     'name':'Add Product',
-                    'link': '/add_product_to_sell/'
+                    'link': '/add/'
                 },
                 {
                     'name':'Payment Types',
                     'link': '/payment/'
                 },
                 {
-                    'name':'Logout',
-                    'link': '/logout/'
-                },
-                {
                     'name':'View Cart',
                     'link': '/order/',
                     'number': products
+                },
+                {
+                    'name':'Logout',
+                    'link': '/logout/'
                 }
             ]
     else:

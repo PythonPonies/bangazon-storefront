@@ -40,10 +40,15 @@ class TestProductTypes(TestCase):
         self.kyrie = Customer.objects.create(user=user, phone='4257896453', shipping_address="The Flat Earth", )
         self.shoes = ProductTypes.objects.create(category_name="Shoes")
         self.books = ProductTypes.objects.create(category_name="Books")
-        self.book1 = ProductsModel.objects.create(title="Man's Search for Meaning", description="Book by Frankl",
-        seller_id=self.kyrie, categoryId=self.books, price=15.00, quantity=3)
-        self.book2 = ProductsModel.objects.create(title="The Four Agreements", description="Book by Ruiz",
-        seller_id=self.kyrie, categoryId=self.books, price=16.00, quantity=4)
+        self.book1 = Product.objects.create(title="Man's Search for Meaning", description="Book by Frankl",
+        seller=self.kyrie, product_type=self.books, price=15.00, quantity=3)
+        self.book2 = Product.objects.create(
+            title="The Four Agreements", 
+            description="Book by Ruiz",
+            seller=self.kyrie,
+            product_type=self.books,
+            price=16.00, 
+            quantity=4)
 
     def test_all_products_renders(self):
         response = self.client.get(reverse('bangazon_storefront:allProductsView', args={self.books.pk}))

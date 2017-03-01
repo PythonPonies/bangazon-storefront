@@ -5,17 +5,20 @@
 <form id='payment-list' action="{% url 'bangazon_storefront:confirm_order' %}" method="post">
 
     {% csrf_token %}
+    {%if payment_types|length > 0 %}
+       {% for payment in payment_types %}
+        <input type='radio' value='{{ payment.pk }}' name='payment_type_id'>
+        {{ payment.payment_name }} [<u>#{{ payment.account_number }}</u>]
+        </input>
 
-    {% for payment in payment_types %}
-    <input type='radio' value='{{ payment.pk }}' name='payment_type_id'>
-    {{ payment.payment_name }} [<u>#{{ payment.account_number }}</u>]
-    </input>
-    {% endfor %}
+        {% endfor %}
 
-    <br><br>
-    
-    <button type='submit'>Confirm Order</button>
-
+        <br><br>
+        
+        <button type='submit'>Confirm Order</button>
+    {%else%}
+        <button><a href="{% url 'bangazon_storefront:PaymentTypeView' %}">Add a payment type</a></button>
+    {%endif%}
 </form>
 
 {% endblock %}

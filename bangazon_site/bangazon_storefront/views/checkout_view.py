@@ -27,9 +27,9 @@ def confirm_order(request):
     """
     data = request.POST
     customer = Customer.objects.get(user=request.user)
-    order = Order.objects.get(buyer_id = customer)
+    order = Order.objects.get(buyer_id = customer, payment_complete=0)
     order.payment_complete = 1
     order.payment_type_id = data['payment_type_id']
     order.save()
 
-    return HttpResponseRedirect('productTypes')
+    return HttpResponseRedirect('/home')

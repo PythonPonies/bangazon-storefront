@@ -3,17 +3,15 @@
 
 <h1>{{product_type_name}}</h1>
 
-<ul>
     {% for product in products  %}
-        <li>
-            <a href="{% url 'bangazon_storefront:product_detail' product.id %}">{{product.title}}</a>
-        </li>
+        <a href="{% url 'bangazon_storefront:product_detail' product.id %}">
+        <div class="products">
+            <h2>{{product.title}}</h2>
+            <p class="price">${{product.price}}</p>
+        </div>
+        </a>
         {% empty %}
-            <li>No products have been added to this product type...</li>
+            <p>No products have been added to this product type.</p>
     {% endfor %}
-
-</ul>
-
-
 
 {% endblock  %}

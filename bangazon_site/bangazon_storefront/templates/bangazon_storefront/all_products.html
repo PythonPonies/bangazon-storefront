@@ -1,7 +1,7 @@
 {% extends 'bangazon_storefront/index.html' %}
 {% block content  %}
 
-<h2>Products for {{products_types_name}}</h2>
+<h2>Products for {{product_type_name}}</h2>
 
 <ul>
     {% for product  in products  %}
@@ -15,8 +15,5 @@
 </ul>
 
 
-    {# {% csrf_token %} #}
-    {# {{  products }} #}
-    {# {% productTypes_id %} #}
 
 {% endblock  %}

@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^customer', customer_view.CustomerView.as_view(), name='CustomerView'),
     url(r'^order/', createorder_view.display_order_and_products, name='order'),
     url(r'^productTypes/', product_types_view.productTypes, name="productTypesView"),
+    url(r'^add_product_type/', product_types_view.add_product_type, name="add_product_type"),
     url(r'^(?P<productTypes_id>\d+)/all-products/$', all_products_view.all_products, name="allProductsView"),
     url(r'^customer', customer_view.CustomerView.as_view(), name='CustomerView'),
     url(r'^(?P<product_id>[0-9]+)/$', product_details_view.detail, name='product_detail'),

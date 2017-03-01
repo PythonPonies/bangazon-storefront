@@ -2,7 +2,6 @@
 {% block content %}
 
 <h1>Product Types</h1>
-{% csrf_token %}
     <ul>
         {% for product_type in product_types %}
             <li>
@@ -14,4 +13,11 @@
 
     </ul>
 
+    <form class="productTypes" action="{% url 'bangazon_storefront:add_product_type' %}" method="post">
+
+   {% csrf_token %}
+        <input type='text' name="category_name" value='' placeholder="Enter new product type">
+        <button type='submit'>Add</button>
+
+    </form>
 {% endblock content %}

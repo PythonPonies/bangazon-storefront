@@ -56,6 +56,18 @@ class TestProductTypes(TestCase):
         product_types = ProductTypes.objects.all()
         self.assertEqual(len(response_context), len(product_types))
 
+    def test_user_can_add_new_product_type(self):
+        """
+            Test user can add new product type
+        """
+
+        self.new_product_types = ProductTypes.objects.create(
+                category_name="Ice cream" 
+                )
+
+        self.added_product_type = ProductTypes.objects.get(id = 3)
+        self.assertEqual(self.added_product_type.pk, self.added_product_type.pk)
+
     
 
     

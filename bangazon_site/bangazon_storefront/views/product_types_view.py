@@ -30,7 +30,7 @@ def add_product_type(request):
 
     data = request.POST
     ProductTypes.objects.create(category_name=data['category_name'])
-    return HttpResponseRedirect('/productTypes/')
+    return HttpResponseRedirect('/add/')
 
 
 

@@ -1,18 +1,38 @@
 {% extends 'bangazon_storefront/index.html' %}
 {% block content %}
-  <h1>Add a new product to sell:</h1>
+  <h1>Add Products:</h1>
+
+  <h5>Your product type not exist? Create a new one. </h5>
+  
+  {# Add a new product type  #}
+   <form class="productTypes" action="{% url 'bangazon_storefront:add_product_type' %}" method="post">
+
+  {% csrf_token %}
+       <input type='text' name="category_name" value='' placeholder="Enter new product type">
+       <button type='submit'>Add</button>
+   </form><br>
+
   <form class="" action="{% url 'bangazon_storefront:addProduct' %}" method="post">
     {% csrf_token %}
-    <input type="text" name="title" value="" placeholder="Title">
-    <input type="text" name="description" value="" placeholder="Description">
-<!--     <input type="password" name="seller_id" value="" placeholder="Seller Id">
- -->
+
+    <select>
+      <optgroup label="Product Types">
     {% for category in categories %}
-    <input type="radio" name="category" value="{{category.category_name}}"> {{category.category_name}}
+        <option value="{{category.category_name}}">{{category.category_name}}</option>
     {% endfor %} 
+      </optgroup>
+    </select>
+    
+    <br>
+    <input type="text" name="title" value="" placeholder="Title"><br>
+    <input type="text" name="description" value="" placeholder="Description">
+    <br>
     <input type="text" name="price" value="" placeholder="Price">
+    <br>
     <input type="text" name="quantity" value="" placeholder="Quantity">
-    <button type="submit" name="button">Submit</button>
+    <br><br>
+    <button type="submit" name="button">Sell Product</button>
   </form>
 
 {% endblock %}
+

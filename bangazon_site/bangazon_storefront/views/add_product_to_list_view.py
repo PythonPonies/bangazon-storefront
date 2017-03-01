@@ -3,14 +3,14 @@ from django.views.generic.base import TemplateView
 from django.shortcuts import get_object_or_404, render
 from bangazon_storefront.models import *
 
-
-
-# This view allows a user to add a product for sale to the generally viewable product list.
-# Author: PS
-
-	# When adding a product, users will be directed to a new template with a form for inputs:
-	# Function for adding and persisting products: 
 def addProduct(request): 
+	"""
+		# This view allows a user to add a product for sale to the generally viewable product list.
+		# Author: PS, Main Bananas
+
+			# When adding a product, users will be directed to a new template with a form for inputs:
+			# Function for adding and persisting products: 
+	"""
 	data = request.POST
 	print(data['category'])
 	seller = customer_model.Customer.objects.get(user=request.user)

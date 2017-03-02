@@ -11,7 +11,7 @@ def remove_product_from_order(request):
     product = products_model.Product.objects.get(pk=data['product_id'])
     customer = customer_model.Customer.objects.get(user=request.user)
     order = order_model.Order.objects.get_or_create(buyer = customer, payment_complete=0)
-    if product.quantity > 0:
+    if product.quantity >= 0:
         product.quantity = product.quantity + 1
         products_model.Product.objects.filter(pk=product.pk).update(quantity=product.quantity)
         item = order_model.Product_On_Order.objects.filter(

@@ -6,6 +6,7 @@ from bangazon_storefront.models.product_types_model import *
 from bangazon_storefront.models.products_model import *
 
 
+
 # Create your views here.
 def productTypes(request):
     """the purpose of this function is to render the

@@ -1,6 +1,7 @@
 {% extends 'bangazon_storefront/index.html' %}
 {% block content %}
 
+
 <h1 id='product-header'>Product Types</h1>
 
     {% for product_type in product_types %}
@@ -15,9 +16,9 @@
             {% endif %}
         {% endfor %}
         </ul>
-
         {% empty %}
         <p>No product types have been added yet.</p>
+    </div>
     </a>
     {% endfor %}
 

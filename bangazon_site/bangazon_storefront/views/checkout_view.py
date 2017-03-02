@@ -5,6 +5,8 @@ from bangazon_storefront.models.paymenttype_model import PaymentType
 from bangazon_storefront.models.customer_model import Customer
 from bangazon_storefront.models.order_model import Order
 
+
+
 def checkout(request):
     """
     The checkout method serves data to the checkout template.
@@ -31,5 +33,4 @@ def confirm_order(request):
     order.payment_complete = 1
     order.payment_type_id = data['payment_type_id']
     order.save()
-
     return HttpResponseRedirect('/home')

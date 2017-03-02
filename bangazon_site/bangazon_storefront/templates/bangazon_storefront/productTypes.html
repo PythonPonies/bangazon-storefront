@@ -4,12 +4,12 @@
 <h1>Product Types</h1>
 
     {% for product_type in product_types %}
-    <a class='product-div' href="{% url 'bangazon_storefront:allProductsView' product_type.id %}">
-    <div class="col-md-4 item" style='border: 2px solid black'>
+    <!-- <div class="col-md-4 item" style="border: 2px solid black"> -->
+    <a class="col-md-4 item" href="{% url 'bangazon_storefront:allProductsView' product_type.id %}">
         <h2 class='product-type'>{{ product_type.category_name }}</h2>
 
         <ul class='list-group'>
-        <p class='twenty-recent'>20 most recently added products</p>
+        <p class='twenty-recent'>max. 20 most recently added products</p>
         {% for product in products %}
             <li class='list-group-item'>{{ product.title }}</li>
         {% endfor %}
@@ -17,8 +17,8 @@
 
         {% empty %}
         <p>No product types have been added yet.</p>
-    </div>
     </a>
+    <!-- </div> -->
     {% endfor %}
 
 {% endblock content %}

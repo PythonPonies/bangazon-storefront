@@ -13,6 +13,7 @@ def addProduct(request):
 	"""
 	data = request.POST
 	seller = customer_model.Customer.objects.get(user=request.user)
+	#the data'[dropdown]' reflects the selected value in the template.
 	product_type = product_types_model.ProductTypes.objects.get(category_name=data['dropdown'])
 	new_product = products_model.Product.objects.create(
 		title = data['title'],

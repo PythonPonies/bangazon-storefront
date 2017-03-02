@@ -31,7 +31,7 @@
         {%endfor%}
         </td>
         <td>
-            <p>where unit price should be</p>
+            <p>${% widthratio product.id__count 1 product.price %}</p>
         </td>
         <td>
         <form class="form-group col-sm-1"  action="{% url 'bangazon_storefront:add_product_to_order' %}" method="post">

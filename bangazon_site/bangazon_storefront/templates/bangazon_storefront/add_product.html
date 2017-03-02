@@ -15,10 +15,10 @@
   <form class="" action="{% url 'bangazon_storefront:addProduct' %}" method="post">
     {% csrf_token %}
     <div class="dropdown cool-buttons">
-      <select class="col-sm-3 cool-buttons" label="Product Types">
+      <select class="col-sm-3 cool-buttons" label="Product Types" name='dropdown'>
         <optgroup label="Product Types">
       {% for category in categories %}
-          <option value="{{category.category_name}}">{{category.category_name}}</option>
+          <option name="{{category.category_name}}"value="{{category.category_name}}">{{category.category_name}}</option>
       {% endfor %} 
         </optgroup>
       </select>

@@ -13,7 +13,7 @@ def addProduct(request):
 	"""
 	data = request.POST
 	seller = customer_model.Customer.objects.get(user=request.user)
-	product_type = product_types_model.ProductTypes.objects.get(category_name=data['category'])
+	product_type = product_types_model.ProductTypes.objects.get(category_name=data['dropdown'])
 	new_product = products_model.Product.objects.create(
 		title = data['title'],
 		description = data['description'], 
@@ -22,7 +22,7 @@ def addProduct(request):
 		price = data['price'], 
 		quantity = data['quantity']
 	)
-	return HttpResponseRedirect('/Add/')
+	return HttpResponseRedirect('/add/')
 
 def renderProduct(request):
     categories = product_types_model.ProductTypes.objects.all()

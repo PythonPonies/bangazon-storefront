@@ -21,7 +21,8 @@ def productTypes(request):
     """
         
     product_types = ProductTypes.objects.all()
-    products = Product.objects.filter(product_type_id = product_types).order_by('-id')
+    # for product_type in product_types:
+    products = Product.objects.all().order_by('-id')
     context =  {'product_types' : product_types, 'products': products[:20]} 
     return render(request, 'bangazon_storefront/productTypes.html', context)
 

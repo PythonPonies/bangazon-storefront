@@ -68,6 +68,8 @@ li {
   line-height: 1.6em;
 }
 
+/*---PRODUCT TYPES----*/
+
 .item:hover {
     background-color: #E9E9E9;
 }
@@ -81,7 +83,8 @@ li {
 }
 
 .twenty-recent {
-    font-size: .90em;
+    text-align: center;
+    font-size: .80em;
     font-style: italic;
     color: black;
 }

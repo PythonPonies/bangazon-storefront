@@ -2,22 +2,25 @@
 {% block content %}
 
 <h1>Product Types</h1>
-    <ul>
-        {% for product_type in product_types %}
-            <li>
-                <a href="{% url 'bangazon_storefront:allProductsView' product_type.id %}">{{product_type.category_name}}</a>
-            </li>
-            {% empty %}
-                <li>No product types have been added yet.</li>
-        {% endfor %}
-
-    </ul>
-
-    <form class="productTypes" action="{% url 'bangazon_storefront:add_product_type' %}" method="post">
-
    {% csrf_token %}
-        <input type='text' name="category_name" value='' placeholder="Enter new product type">
-        <button type='submit'>Add</button>
+    {% for product_type in product_types %}
+    <div class="col-md-6">
+        <h2 class='product-type'>{{ product_type.category_name }}</h2>
+
+        <ul class='list-group'>
+        <p class='twenty-recent'>20 most recently added products</p>
+        {% for product in products|slice:":20" %}
+            {%if product_type.id == product.product_type_id%}
+                <li class='list-group-item'>{{ product.title }}</li>
+            {%endif%}
+        
+        </ul>
+
+        {% empty %}
+        <p>No product types have been added yet.</p>
+        {% endfor %}
+    </div>
+    {% endfor %}
 
     </form>
 {% endblock content %}

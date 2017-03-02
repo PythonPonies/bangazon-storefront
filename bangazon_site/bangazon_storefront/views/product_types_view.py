@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect, Http404
 # from django.core.urlresolvers import reverse
 # from django.contrib.auth.decorators import login_required
 from bangazon_storefront.models.product_types_model import *
+from bangazon_storefront.models.products_model import *
 
 
 # Create your views here.
@@ -20,7 +21,9 @@ def productTypes(request):
     """
         
     product_types = ProductTypes.objects.all()
-    context =  {'product_types' : product_types} 
+    # for product_type in product_types:
+    products = Product.objects.all().order_by('-id')
+    context =  {'product_types' : product_types, 'products': products[:20]} 
     return render(request, 'bangazon_storefront/productTypes.html', context)
 
 def add_product_type(request):

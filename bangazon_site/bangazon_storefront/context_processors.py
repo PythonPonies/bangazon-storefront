@@ -4,10 +4,10 @@ from django.contrib.auth.models import User
 
 def navigation(context):
     """
-    The Index class calls get_products_for_active_customer so that it can draw the index.html template while passing how many products the active customer has.
+    The navigation context processor generates the dynamic navbar for the index.html template while passing how many products the active customer has.
 
-    Arguments: This class needs request to know which user is currently active.
-    Author:    Nate Baker, Main Bananas
+    Arguments: This class needs context to know which user is currently active.
+    Author:    Nate Baker & Zoe, Main Bananas
     """
     if context.user.is_authenticated():
             # return number of their active products
@@ -56,6 +56,5 @@ def navigation(context):
                     'link': '/login/'
                 }
             ]
-    # products = Navigation.get_products_for_active_customer(request)
     return {'navigation': list_of_nav}
     

@@ -2,7 +2,12 @@ from django.shortcuts import get_object_or_404, render
 from bangazon_storefront.models import *
 
 def index(request):
-    """"""
+    """
+    The index view maps the url index.html to the data that it needs.
+
+    Arguments: request allows Django to see user session data
+    Author: Zoe, Main Bananas
+    """
     producttypes = product_types_model.ProductTypes.objects.all()    
     products = []
     for p_type in producttypes:

@@ -12,7 +12,9 @@
         <p class='twenty-recent'>recently added products</p>
         {% for product in products %}
             {% if product_type.id == product.product_type_id %}
-                <li class='list-group-item'>{{ product.title }}</li>
+                <li id='product-item' class="list-group-item">
+                <span class="badge">{{product.quantity}}</span>
+                {{product.title}}</li>
             {% endif %}
         {% endfor %}
         </ul>

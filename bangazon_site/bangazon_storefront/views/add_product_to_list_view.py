@@ -23,7 +23,7 @@ def addProduct(request):
 		price = data['price'], 
 		quantity = data['quantity']
 	)
-	return HttpResponseRedirect('/home')
+	return HttpResponseRedirect('/')
 
 def renderProduct(request):
     categories = product_types_model.ProductTypes.objects.all()

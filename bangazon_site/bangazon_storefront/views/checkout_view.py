@@ -33,4 +33,4 @@ def confirm_order(request):
     order.payment_complete = 1
     order.payment_type_id = data['payment_type_id']
     order.save()
-    return HttpResponseRedirect('/home')
+    return HttpResponseRedirect('/')

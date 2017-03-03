@@ -10,21 +10,42 @@
   <body>
 
     <div class="menu">
-    <ul>
-      <a href="{% url 'bangazon_storefront:home' %}"><h1>Bangazon</h1></a>
-      {%for item in navigation%}
-        
-        <li class="navbar-{{item.prop}}"> <a href="{{item.link}}">{{ item.number }}
-        {% if item.name == 'View Cart'%} 
-          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-        {% else%} 
-          {{item.name}}
-        {%endif%}
-        </a>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
+      <ul>
+        <a href="{% url 'bangazon_storefront:index' %}"><h1>Bangazon</h1></a>
+        {%for item in navigation%}
+          
+          <li class="navbar-{{item.prop}}"> <a href="{{item.link}}">{{ item.number }}
+          {% if item.name == 'View Cart'%} 
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+          {% else%} 
+            {{item.name}}
+          {%endif%}
+          </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% csrf_token %}
+    <div class="row text-center">
+        <h1>Welcome to Bangazon Storefront</h1>
+    </div>
+    <div class="row text-center">
+        <h5>Nashville Software School's Premier E-commerce Platform</h5>
+    </div>
+    {%for type in producttypes%}
+        <div class="row col-sm-4">
+            <h2 style="text-transform:uppercase;" class="text-center">{{type.category_name}}</h2>
+            <ul class="list-group">
+                {%for product in products %}
+                    {%if product.product_type_id == type.id %}
+                        <li class="list-group-item">
+                        <span class="badge">{{product.quantity}}</span>
+                        <a href="{% url 'bangazon_storefront:product_detail' product.id %}">{{product.title}}</a></li>
+                    {%endif%}
+                {%endfor%}
+            </ul>
+        </div>
+    {%endfor%}
     <div class="wrapper container">
       {% block content %}
       {% endblock %}

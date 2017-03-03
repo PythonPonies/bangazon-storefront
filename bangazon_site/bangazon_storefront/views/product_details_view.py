@@ -6,7 +6,13 @@ from bangazon_storefront.models import *
 import requests, json
 
 def detail(request, product_id):
-    """This method generates the information about the product on the detail page."""
+    """
+    The detail view maps the url product-detail.html to the data that it needs.
+
+    Arguments: request allows Django to see user session data, product_id is used to generate the individual product
+    Uncomment the lines to add pictures for each product
+    Author: Zoe, Main Bananas
+    """
 
     product = get_object_or_404(products_model.Product, pk=product_id)
     print(product.title)

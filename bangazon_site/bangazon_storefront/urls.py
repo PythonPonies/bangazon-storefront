@@ -6,8 +6,7 @@ from bangazon_storefront.views import checkout_view
 
 app_name = 'bangazon_storefront'
 urlpatterns = [
-    url(r'^$', index_view.IndexView.as_view(), name='index'),
-    url(r'^home', home_view.home, name='home'),
+    url(r'^$', index_view.index, name='index'),
     url(r'^customer', customer_view.CustomerView.as_view(), name='CustomerView'),
     url(r'^order/', createorder_view.display_order_and_products, name='order'),
     url(r'^productTypes/', product_types_view.productTypes, name="productTypesView"),

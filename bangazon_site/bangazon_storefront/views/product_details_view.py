@@ -15,7 +15,6 @@ def detail(request, product_id):
     """
 
     product = get_object_or_404(products_model.Product, pk=product_id)
-    print(product.title)
     # r=requests.get("https://pixabay.com/api/?key=3448017-bb600a501ab86925a33197f5b&q="+product.title+"&image_type=photo").json();
     # image = r['hits'][0]
     # image = image['webformatURL']

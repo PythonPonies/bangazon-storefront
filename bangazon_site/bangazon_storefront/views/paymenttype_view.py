@@ -23,4 +23,4 @@ def add_payment_type(request):
         billing_address = payment['billing_address'],
     )
 
-    return HttpResponseRedirect('/home')
+    return HttpResponseRedirect('/')

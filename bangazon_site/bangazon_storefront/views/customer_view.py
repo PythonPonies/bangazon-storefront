@@ -59,10 +59,10 @@ def login_customer(request):
 # For now, login error redirects head to the index page. This will likely change in future merges.
 # Successful login redirects to the productTypes template
 
-		return HttpResponseRedirect(redirect_to='/home')
+		return HttpResponseRedirect(redirect_to='/')
 	return HttpResponseRedirect(redirect_to='/productTypes/')
 
 # Logout function will be called via a button on the Navbar 
 def logout_customer(request): 
 	logout(request) 
-	return HttpResponseRedirect(redirect_to='/home')
+	return HttpResponseRedirect(redirect_to='/')

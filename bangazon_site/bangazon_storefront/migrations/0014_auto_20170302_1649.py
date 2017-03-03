@@ -9,7 +9,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bangazon_storefront', '0013_auto_20170301_1630'),
+        ('bangazon_storefront', '0001_initial'),
     ]
 
     operations = [

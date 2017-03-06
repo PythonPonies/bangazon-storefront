@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'q8_i55q7$1a8nft&vrh$3lbocg7az%a4@*@a)iq(5y1&)*vpjm'
+SECRET_KEY = '_up*@)c_e!^u&&qs51vv+bl^&ouep$$$(zawo2#zau=o1)^_a%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bangazon_storefront',
+    'bangazon_ultra',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'bangazon_storefront.context_processors.navigation'
+                'bangazon_ultra.context_processors.navigation'
             ],
         },
     },
@@ -78,10 +78,9 @@ WSGI_APPLICATION = 'bangazon_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.environ.get('BANGAZON_DB', ''),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators

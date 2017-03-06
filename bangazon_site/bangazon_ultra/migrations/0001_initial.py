@@ -76,12 +76,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='product_type',
-            field=models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to='bangazon_ultra.ProductTypes'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='bangazon_ultra.ProductTypes'),
         ),
         migrations.AddField(
             model_name='product',
             name='seller',
-            field=models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to='bangazon_ultra.Customer'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='bangazon_ultra.Customer'),
         ),
         migrations.AddField(
             model_name='order',

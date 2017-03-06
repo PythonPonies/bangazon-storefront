@@ -19,6 +19,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('bangazon_storefront.urls'), name='bangazon_storefront')
+    url(r'^', include('bangazon_ultra.urls'), name='bangazon_ultra')
 ]
 
